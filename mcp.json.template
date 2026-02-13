@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "comet": {
+      "command": "node",
+      "args": ["{{CURSOR_DIR}}\\comet-auto-space.js"]
+    },
+    "poe2-optimizer": {
+      "command": "poe2-mcp",
+      "args": []
+    }
+  }
+}

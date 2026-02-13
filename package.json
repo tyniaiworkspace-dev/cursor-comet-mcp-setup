@@ -1,0 +1,14 @@
+{
+  "name": "cursor-mcp-setup",
+  "version": "1.0.0",
+  "description": "Cursor MCP config backup: Comet (Perplexity) + poe2-optimizer. Restore with setup.ps1.",
+  "private": true,
+  "scripts": {
+    "setup": "powershell -ExecutionPolicy Bypass -File .\\setup.ps1"
+  },
+  "keywords": ["cursor", "mcp", "comet", "perplexity"],
+  "license": "ISC",
+  "dependencies": {
+    "chrome-remote-interface": "^0.34.0"
+  }
+}
