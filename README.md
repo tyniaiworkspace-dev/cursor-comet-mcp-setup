@@ -4,7 +4,7 @@ Backup repo for Cursor IDE MCP configuration. After a fresh install, clone this 
 
 ## First-time: push to GitHub
 
-1. Create a **private** repo on GitHub (e.g. `cursor-mcp-setup`).
+1. Create a **public** repo on GitHub (e.g. `cursor-mcp-setup`).
 2. Push this folder (include `mcp.json.template`, `setup.ps1`, `comet-auto-space.js`, `package.json`, `README.md`, `.gitignore`; do not push `node_modules` or `.env`).
 3. On any new machine: clone → run `.\setup.ps1` → restart Cursor.
 
@@ -58,7 +58,7 @@ After changing your live config (e.g. editing `mcp.json` or `comet-auto-space.js
 - Update `mcp.json.template` if you add/remove MCP servers (keep `{{CURSOR_DIR}}` for the comet script path).
 - Update `comet-auto-space.js` and/or `package.json` to match.
 
-Then commit and push so the private GitHub repo stays in sync with your desired setup.
+Then commit and push so the GitHub repo stays in sync with your desired setup.
 
 ---
 
@@ -86,18 +86,18 @@ Add the GitHub MCP server to your Cursor config. Edit `%USERPROFILE%\.cursor\mcp
 }
 ```
 
-Replace `YOUR_GITHUB_PAT_HERE` with a [GitHub Personal Access Token](https://github.com/settings/tokens) that has at least **repo** scope (so you can create a private repo and push).
+Replace `YOUR_GITHUB_PAT_HERE` with a [GitHub Personal Access Token](https://github.com/settings/tokens) that has at least **repo** scope (so you can create the repo and push).
 
 Restart Cursor (or Reload Window) so the GitHub MCP loads.
 
-### 2. Create the private repo on GitHub
+### 2. Create the repo on GitHub
 
-- In Cursor, you can ask the AI to use the GitHub MCP to create a new **private** repository named `cursor-mcp-setup` (or use GitHub in the browser: New repository → Private → Create).
+- In Cursor, you can ask the AI to use the GitHub MCP to create a new repository named `cursor-mcp-setup` (or use GitHub in the browser: New repository → Public → Create).
 - Do **not** add a README, .gitignore, or license on GitHub (this repo already has them).
 
 ### 3. Push from the repo folder
 
-**Order of operations (ready to push):** (A) Create GitHub PAT (repo scope) → (C) Add `github` to mcp.json with PAT → (D) Restart Cursor → (B) Create private repo on GitHub (empty) → (E) Terminal: git init, add, commit, remote add, push.
+**Order of operations (ready to push):** (A) Create GitHub PAT (repo scope) → (C) Add `github` to mcp.json with PAT → (D) Restart Cursor → (B) Create public repo on GitHub (empty) → (E) Terminal: git init, add, commit, remote add, push.
 
 In a terminal, from the `cursor-mcp-setup` folder:
 
@@ -112,4 +112,4 @@ git remote add origin https://github.com/YOUR_USERNAME/cursor-mcp-setup.git
 git push -u origin main
 ```
 
-Or, if the GitHub MCP exposes push/create-repo tools, you can ask the AI to “create private repo cursor-mcp-setup and push this folder” after the MCP is configured and you’re in the project.
+Or, if the GitHub MCP exposes push/create-repo tools, you can ask the AI to create the repo and push this folder after the MCP is configured and you’re in the project.
