@@ -5,3 +5,6 @@ node_modules/
 Thumbs.db
 # Do not commit machine-specific or secret files
 space-mapping.json
+# Cursor local state (not part of portable setup)
+.cursor/projects/
+**/agent-transcripts/

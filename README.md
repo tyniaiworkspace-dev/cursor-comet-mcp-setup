@@ -1,6 +1,6 @@
 # Cursor MCP Setup (Comet + poe2-optimizer)
 
-Backup repo for Cursor IDE MCP configuration. After a fresh install, clone this repo and run the setup script to restore your Comet (Perplexity) and poe2-optimizer MCP servers.
+Full-project backup for Cursor IDE: MCP config (Comet + poe2-optimizer), docs, space-registry, Cursor rules/skills, and project templates. Clone on **Windows** or **macOS** (e.g. MacBook Air), run the setup script for your OS, then open the folder in Cursor.
 
 ## First-time: push to GitHub
 
@@ -12,6 +12,7 @@ Backup repo for Cursor IDE MCP configuration. After a fresh install, clone this 
 
 - **Comet** – Launched via `comet-auto-space.js` (auto Space creation + `npx comet-mcp`).
 - **poe2-optimizer** – Launched via `poe2-mcp` (must be installed separately).
+- **Full project** – `docs/`, `space-registry/`, `.cursor/rules` and `.cursor/skills`, `project-context-template/`, `project-context-template-lean/`, `scripts/`, and guides. Open the cloned folder in Cursor to use the rules and skills automatically.
 
 ## Prerequisites
 
@@ -20,13 +21,15 @@ Backup repo for Cursor IDE MCP configuration. After a fresh install, clone this 
 
 ## Restore (fresh install)
 
-1. **Clone this repo** (e.g. to `~\cursor-comet-mcp-setup` or anywhere you like):
+### Windows
+
+1. **Clone this repo** (e.g. to `~\cursor-comet-mcp-setup`):
    ```powershell
    git clone https://github.com/YOUR_USERNAME/cursor-comet-mcp-setup.git
    cd cursor-comet-mcp-setup
    ```
 
-2. **Run the setup script** (run from the repo root):
+2. **Run the setup script** (from the repo root):
    ```powershell
    .\setup.ps1
    ```
@@ -36,9 +39,26 @@ Backup repo for Cursor IDE MCP configuration. After a fresh install, clone this 
    .\setup.ps1
    ```
 
-3. **Restart Cursor** (or Reload Window) so it loads the new `mcp.json` from `%USERPROFILE%\.cursor\`.
+3. **Restart Cursor** (or Reload Window). Open this repo folder in Cursor to use the included rules/skills.
 
-That’s it. Comet will run via the wrapper; poe2-optimizer will work if `poe2-mcp` is on your PATH.
+### macOS (MacBook Air, etc.)
+
+1. **Clone this repo** (e.g. to `~/cursor-comet-mcp-setup`):
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/cursor-comet-mcp-setup.git
+   cd cursor-comet-mcp-setup
+   ```
+
+2. **Run the setup script** (from the repo root):
+   ```bash
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+   This writes MCP config to `~/.cursor/mcp.json` and installs Comet’s Node deps there.
+
+3. **Restart Cursor** (or Reload Window). Open this repo folder in Cursor to use the included rules/skills.
+
+That’s it. Comet runs via the wrapper; poe2-optimizer works if `poe2-mcp` is on your PATH.
 
 ## What the setup does
 
