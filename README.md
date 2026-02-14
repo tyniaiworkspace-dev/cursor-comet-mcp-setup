@@ -1,35 +1,38 @@
 # Cursor MCP Setup (Comet + poe2-optimizer)
 
-Full-project backup for Cursor IDE: MCP config (Comet + poe2-optimizer), docs, space-registry, Cursor rules/skills, and project templates. Clone on **Windows** or **macOS** (e.g. MacBook Air), run the setup script for your OS, then open the folder in Cursor.
+Backup repo for Cursor IDE MCP configuration. After a fresh install, clone this repo and run the setup script to restore your Comet (Perplexity) and poe2-optimizer MCP servers.
 
 ## First-time: push to GitHub
 
 1. Create a **public** repo on GitHub (e.g. `cursor-comet-mcp-setup`).
-2. Push this folder (include `mcp.json.template`, `setup.ps1`, `comet-auto-space.js`, `package.json`, `README.md`, `.gitignore`; do not push `node_modules` or `.env`).
+2. Push this folder (include `mcp.json.template`, `setup.ps1`, `comet-auto-space.js`, `package.json`, `README.md`, `.gitignore`, `docs/POE2_MCP_KNOWN_ISSUES.md`; do not push `node_modules` or `.env`).
 3. On any new machine: clone → run `.\setup.ps1` → restart Cursor.
 
 ## What this restores
 
 - **Comet** – Launched via `comet-auto-space.js` (auto Space creation + `npx comet-mcp`).
 - **poe2-optimizer** – Launched via `poe2-mcp` (must be installed separately).
-- **Full project** – `docs/`, `space-registry/`, `.cursor/rules` and `.cursor/skills`, `project-context-template/`, `project-context-template-lean/`, `scripts/`, and guides. Open the cloned folder in Cursor to use the rules and skills automatically.
 
 ## Prerequisites
 
 - **Node.js** (with `npm` and `npx` on PATH).
 - **Optional:** `pip install poe2-mcp` if you use the PoE2 Build Optimizer server.
 
+### PoE2 MCP: known issues (future installs)
+
+After `pip install poe2-mcp`, you may see startup or list-tool errors. This repo includes a guide so you can fix them on any future install:
+
+- **[docs/POE2_MCP_KNOWN_ISSUES.md](docs/POE2_MCP_KNOWN_ISSUES.md)** – Describes the async `main` fix and the limit/offset (int+str) fix, and where to apply them in the installed package. Check this when you install the PoE2 MCP on a new machine.
+
 ## Restore (fresh install)
 
-### Windows
-
-1. **Clone this repo** (e.g. to `~\cursor-comet-mcp-setup`):
+1. **Clone this repo** (e.g. to `~\cursor-comet-mcp-setup` or anywhere you like):
    ```powershell
    git clone https://github.com/YOUR_USERNAME/cursor-comet-mcp-setup.git
    cd cursor-comet-mcp-setup
    ```
 
-2. **Run the setup script** (from the repo root):
+2. **Run the setup script** (run from the repo root):
    ```powershell
    .\setup.ps1
    ```
@@ -39,26 +42,9 @@ Full-project backup for Cursor IDE: MCP config (Comet + poe2-optimizer), docs, s
    .\setup.ps1
    ```
 
-3. **Restart Cursor** (or Reload Window). Open this repo folder in Cursor to use the included rules/skills.
+3. **Restart Cursor** (or Reload Window) so it loads the new `mcp.json` from `%USERPROFILE%\.cursor\`.
 
-### macOS (MacBook Air, etc.)
-
-1. **Clone this repo** (e.g. to `~/cursor-comet-mcp-setup`):
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/cursor-comet-mcp-setup.git
-   cd cursor-comet-mcp-setup
-   ```
-
-2. **Run the setup script** (from the repo root):
-   ```bash
-   chmod +x setup.sh
-   ./setup.sh
-   ```
-   This writes MCP config to `~/.cursor/mcp.json` and installs Comet’s Node deps there.
-
-3. **Restart Cursor** (or Reload Window). Open this repo folder in Cursor to use the included rules/skills.
-
-That’s it. Comet runs via the wrapper; poe2-optimizer works if `poe2-mcp` is on your PATH.
+That’s it. Comet will run via the wrapper; poe2-optimizer will work if `poe2-mcp` is on your PATH.
 
 ## What the setup does
 
@@ -124,7 +110,7 @@ In a terminal, from the `cursor-comet-mcp-setup` folder:
 ```powershell
 cd "c:\Users\admin\Perplexity mcp\cursor-comet-mcp-setup"
 git init
-git add mcp.json.template comet-auto-space.js package.json setup.ps1 README.md .gitignore .env.example PRE_PUSH_CHECKLIST.md
+git add mcp.json.template comet-auto-space.js package.json setup.ps1 README.md .gitignore .env.example PRE_PUSH_CHECKLIST.md docs/POE2_MCP_KNOWN_ISSUES.md
 git status
 git commit -m "Cursor MCP setup: Comet + poe2-optimizer"
 git branch -M main
