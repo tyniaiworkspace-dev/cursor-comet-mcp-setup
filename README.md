@@ -4,7 +4,7 @@ Backup repo for Cursor IDE MCP configuration. After a fresh install, clone this 
 
 ## First-time: push to GitHub
 
-1. Create a **public** repo on GitHub (e.g. `cursor-mcp-setup`).
+1. Create a **public** repo on GitHub (e.g. `cursor-comet-mcp-setup`).
 2. Push this folder (include `mcp.json.template`, `setup.ps1`, `comet-auto-space.js`, `package.json`, `README.md`, `.gitignore`; do not push `node_modules` or `.env`).
 3. On any new machine: clone → run `.\setup.ps1` → restart Cursor.
 
@@ -20,10 +20,10 @@ Backup repo for Cursor IDE MCP configuration. After a fresh install, clone this 
 
 ## Restore (fresh install)
 
-1. **Clone this repo** (e.g. to `~\cursor-mcp-setup` or anywhere you like):
+1. **Clone this repo** (e.g. to `~\cursor-comet-mcp-setup` or anywhere you like):
    ```powershell
-   git clone https://github.com/YOUR_USERNAME/cursor-mcp-setup.git
-   cd cursor-mcp-setup
+   git clone https://github.com/YOUR_USERNAME/cursor-comet-mcp-setup.git
+   cd cursor-comet-mcp-setup
    ```
 
 2. **Run the setup script** (run from the repo root):
@@ -92,23 +92,23 @@ Restart Cursor (or Reload Window) so the GitHub MCP loads.
 
 ### 2. Create the repo on GitHub
 
-- In Cursor, you can ask the AI to use the GitHub MCP to create a new repository named `cursor-mcp-setup` (or use GitHub in the browser: New repository → Public → Create).
+- In Cursor, you can ask the AI to use the GitHub MCP to create a new repository named `cursor-comet-mcp-setup` (or use GitHub in the browser: New repository → Public → Create).
 - Do **not** add a README, .gitignore, or license on GitHub (this repo already has them).
 
 ### 3. Push from the repo folder
 
 **Order of operations (ready to push):** (A) Create GitHub PAT (repo scope) → (C) Add `github` to mcp.json with PAT → (D) Restart Cursor → (B) Create public repo on GitHub (empty) → (E) Terminal: git init, add, commit, remote add, push.
 
-In a terminal, from the `cursor-mcp-setup` folder:
+In a terminal, from the `cursor-comet-mcp-setup` folder:
 
 ```powershell
-cd "c:\Users\admin\Perplexity mcp\cursor-mcp-setup"
+cd "c:\Users\admin\Perplexity mcp\cursor-comet-mcp-setup"
 git init
 git add mcp.json.template comet-auto-space.js package.json setup.ps1 README.md .gitignore .env.example PRE_PUSH_CHECKLIST.md
 git status
 git commit -m "Cursor MCP setup: Comet + poe2-optimizer"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/cursor-mcp-setup.git
+git remote add origin https://github.com/YOUR_USERNAME/cursor-comet-mcp-setup.git
 git push -u origin main
 ```
 

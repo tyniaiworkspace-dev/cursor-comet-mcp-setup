@@ -1,5 +1,5 @@
 {
-  "name": "cursor-mcp-setup",
+  "name": "cursor-comet-mcp-setup",
   "version": "1.0.0",
   "description": "Cursor MCP config backup: Comet (Perplexity) + poe2-optimizer. Restore with setup.ps1.",
   "private": true,
